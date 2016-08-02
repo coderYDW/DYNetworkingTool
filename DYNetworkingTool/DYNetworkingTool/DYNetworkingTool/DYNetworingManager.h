@@ -6,6 +6,9 @@
 //  Copyright © 2016年 DovYoung. All rights reserved.
 //
 
+/**
+ *  网络中间类
+ */
 #import <AFNetworking/AFNetworking.h>
 
 typedef enum {
@@ -22,10 +25,10 @@ typedef enum {
 
 
 - (void)requestWithType:(RequestType)type
-              URLString:(NSString  *  )URLString
+              URLString:(NSString  *)URLString
              parameters:(id )parameters
                progress:(void (^)(NSProgress *progress))downloadProgress
-                success:(void (^)(NSURLSessionDataTask *  task, id response))success
-                failure:(void (^)(NSURLSessionDataTask *  task, NSError * error))failure;
+                success:(void (^)(NSURLSessionDataTask *task, id response))success
+                failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure;
 
 @end

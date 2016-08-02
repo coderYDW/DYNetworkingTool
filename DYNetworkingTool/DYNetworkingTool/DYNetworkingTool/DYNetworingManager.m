@@ -33,29 +33,23 @@
               URLString:(NSString *)URLString
              parameters:(id)parameters
                progress:(void (^)(NSProgress *progress))downloadProgress
-                success:(void (^)(NSURLSessionDataTask *, id ))success
-                failure:(void (^)(NSURLSessionDataTask * task, NSError * error))failure
+                success:(void (^)(NSURLSessionDataTask *task, id response))success
+                failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure
 {
     
-    void(^successBlock)(NSURLSessionDataTask *  task, id   responseObject) = ^(NSURLSessionDataTask *  task, id   responseObject) {
-        
+    void(^successBlock)(NSURLSessionDataTask *task, id responseObject) = ^(NSURLSessionDataTask *task, id responseObject) {
         success(task,responseObject);
-        
     };
     
-    void(^failureBlock)(NSURLSessionDataTask *  task, NSError *  error) = ^(NSURLSessionDataTask *  task, NSError *  error) {
-        
+    void(^failureBlock)(NSURLSessionDataTask *task, NSError *error) = ^(NSURLSessionDataTask *task, NSError *error) {
         failure(task,error);
-        
     };
     
     
 
     if (type == RequestTypeGet) {
         [self GET:URLString parameters:parameters progress:downloadProgress success:successBlock failure:failureBlock];
-    }
-    
-    if (type == RequestTypePost) {
+    } else if (type == RequestTypePost) {
         [self POST:URLString parameters:parameters progress:downloadProgress success:successBlock failure:failureBlock];
     }
     
