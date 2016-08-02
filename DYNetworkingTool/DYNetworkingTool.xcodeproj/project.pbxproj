@@ -14,6 +14,7 @@
 		E48D6D401D5054BB009CAB9F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E48D6D3E1D5054BB009CAB9F /* Main.storyboard */; };
 		E48D6D421D5054BB009CAB9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E48D6D411D5054BB009CAB9F /* Assets.xcassets */; };
 		E48D6D451D5054BB009CAB9F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E48D6D431D5054BB009CAB9F /* LaunchScreen.storyboard */; };
+		E48D6D4F1D5058C0009CAB9F /* DYNetworingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E48D6D4E1D5058C0009CAB9F /* DYNetworingManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,8 @@
 		E48D6D411D5054BB009CAB9F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E48D6D441D5054BB009CAB9F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E48D6D461D5054BB009CAB9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E48D6D4D1D5058C0009CAB9F /* DYNetworingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DYNetworingManager.h; sourceTree = "<group>"; };
+		E48D6D4E1D5058C0009CAB9F /* DYNetworingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DYNetworingManager.m; sourceTree = "<group>"; };
 		F11AAECAA563435087212282 /* libPods-DYNetworkingTool.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DYNetworkingTool.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -107,6 +110,8 @@
 		E48D6D4C1D505651009CAB9F /* DYNetworkingTool */ = {
 			isa = PBXGroup;
 			children = (
+				E48D6D4D1D5058C0009CAB9F /* DYNetworingManager.h */,
+				E48D6D4E1D5058C0009CAB9F /* DYNetworingManager.m */,
 			);
 			path = DYNetworkingTool;
 			sourceTree = "<group>";
@@ -233,6 +238,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E48D6D4F1D5058C0009CAB9F /* DYNetworingManager.m in Sources */,
 				E48D6D3D1D5054BB009CAB9F /* ViewController.m in Sources */,
 				E48D6D3A1D5054BB009CAB9F /* AppDelegate.m in Sources */,
 				E48D6D371D5054BB009CAB9F /* main.m in Sources */,
