@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		278A54C2ADE01709625C998D /* libPods-DYNetworkingTool.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F11AAECAA563435087212282 /* libPods-DYNetworkingTool.a */; };
 		E48D6D371D5054BB009CAB9F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E48D6D361D5054BB009CAB9F /* main.m */; };
 		E48D6D3A1D5054BB009CAB9F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E48D6D391D5054BB009CAB9F /* AppDelegate.m */; };
 		E48D6D3D1D5054BB009CAB9F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E48D6D3C1D5054BB009CAB9F /* ViewController.m */; };
@@ -16,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9EB1CCDFEC82ABD359798746 /* Pods-DYNetworkingTool.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DYNetworkingTool.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DYNetworkingTool/Pods-DYNetworkingTool.debug.xcconfig"; sourceTree = "<group>"; };
+		B50D03B7D4957C057A115646 /* Pods-DYNetworkingTool.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DYNetworkingTool.release.xcconfig"; path = "Pods/Target Support Files/Pods-DYNetworkingTool/Pods-DYNetworkingTool.release.xcconfig"; sourceTree = "<group>"; };
 		E48D6D321D5054BB009CAB9F /* DYNetworkingTool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DYNetworkingTool.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E48D6D361D5054BB009CAB9F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E48D6D381D5054BB009CAB9F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -26,6 +29,7 @@
 		E48D6D411D5054BB009CAB9F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E48D6D441D5054BB009CAB9F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E48D6D461D5054BB009CAB9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F11AAECAA563435087212282 /* libPods-DYNetworkingTool.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DYNetworkingTool.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +37,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				278A54C2ADE01709625C998D /* libPods-DYNetworkingTool.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BA3E83BDA2A3AC4CF4B5B67A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F11AAECAA563435087212282 /* libPods-DYNetworkingTool.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E0E9CAEAA5A8D8237B7EB2D3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9EB1CCDFEC82ABD359798746 /* Pods-DYNetworkingTool.debug.xcconfig */,
+				B50D03B7D4957C057A115646 /* Pods-DYNetworkingTool.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		E48D6D291D5054BB009CAB9F = {
 			isa = PBXGroup;
 			children = (
 				E48D6D341D5054BB009CAB9F /* DYNetworkingTool */,
 				E48D6D331D5054BB009CAB9F /* Products */,
+				E0E9CAEAA5A8D8237B7EB2D3 /* Pods */,
+				BA3E83BDA2A3AC4CF4B5B67A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,6 +82,7 @@
 		E48D6D341D5054BB009CAB9F /* DYNetworkingTool */ = {
 			isa = PBXGroup;
 			children = (
+				E48D6D4C1D505651009CAB9F /* DYNetworkingTool */,
 				E48D6D381D5054BB009CAB9F /* AppDelegate.h */,
 				E48D6D391D5054BB009CAB9F /* AppDelegate.m */,
 				E48D6D3B1D5054BB009CAB9F /* ViewController.h */,
@@ -79,6 +104,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		E48D6D4C1D505651009CAB9F /* DYNetworkingTool */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DYNetworkingTool;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -86,9 +118,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E48D6D491D5054BB009CAB9F /* Build configuration list for PBXNativeTarget "DYNetworkingTool" */;
 			buildPhases = (
+				E13188B718B26BC17A516896 /* [CP] Check Pods Manifest.lock */,
 				E48D6D2E1D5054BB009CAB9F /* Sources */,
 				E48D6D2F1D5054BB009CAB9F /* Frameworks */,
 				E48D6D301D5054BB009CAB9F /* Resources */,
+				22FE6B67923C1A5EEB7BACEC /* [CP] Embed Pods Frameworks */,
+				619B50B113246966E6BE5D51 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -144,6 +179,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		22FE6B67923C1A5EEB7BACEC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DYNetworkingTool/Pods-DYNetworkingTool-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		619B50B113246966E6BE5D51 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DYNetworkingTool/Pods-DYNetworkingTool-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E13188B718B26BC17A516896 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E48D6D2E1D5054BB009CAB9F /* Sources */ = {
@@ -262,6 +345,7 @@
 		};
 		E48D6D4A1D5054BB009CAB9F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9EB1CCDFEC82ABD359798746 /* Pods-DYNetworkingTool.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = DYNetworkingTool/Info.plist;
@@ -273,6 +357,7 @@
 		};
 		E48D6D4B1D5054BB009CAB9F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B50D03B7D4957C057A115646 /* Pods-DYNetworkingTool.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = DYNetworkingTool/Info.plist;
@@ -301,6 +386,7 @@
 				E48D6D4B1D5054BB009CAB9F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
