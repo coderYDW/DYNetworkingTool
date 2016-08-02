@@ -8,13 +8,18 @@
 
 #import "DYNetworingManager.h"
 
+@interface DYNetworingManager ()
+
+
+
+@end
 
 
 @implementation DYNetworingManager
 
 + (instancetype)sharedManager {
 
-    static DYNetworingManager *manager = nil;
+    static DYNetworingManager *manager;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         manager = [[self alloc] init];
@@ -27,35 +32,31 @@
 - (void)requestWithType:(RequestType)type
               URLString:(NSString *)URLString
              parameters:(id)parameters
-               progress:(void (^)(NSProgress * _Nonnull))downloadProgress
-                success:(void (^)(NSURLSessionDataTask * _Nonnull, id _Nullable))success
-                failure:(void (^)(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error))failure
+               progress:(void (^)(NSProgress *progress))downloadProgress
+                success:(void (^)(NSURLSessionDataTask *, id ))success
+                failure:(void (^)(NSURLSessionDataTask * task, NSError * error))failure
 {
+    
+    void(^successBlock)(NSURLSessionDataTask *  task, id   responseObject) = ^(NSURLSessionDataTask *  task, id   responseObject) {
+        
+        success(task,responseObject);
+        
+    };
+    
+    void(^failureBlock)(NSURLSessionDataTask *  task, NSError *  error) = ^(NSURLSessionDataTask *  task, NSError *  error) {
+        
+        failure(task,error);
+        
+    };
+    
+    
 
     if (type == RequestTypeGet) {
-        
-        [self GET:URLString parameters:parameters progress:downloadProgress success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-            
-            success(task,responseObject);
-            
-        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-            
-            failure(task,error);
-            
-        }];
-
+        [self GET:URLString parameters:parameters progress:downloadProgress success:successBlock failure:failureBlock];
     }
     
     if (type == RequestTypePost) {
-        [self POST:URLString parameters:parameters progress:downloadProgress success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-            
-            success(task,responseObject);
-            
-        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-            
-            failure(task,error);
-            
-        }];
+        [self POST:URLString parameters:parameters progress:downloadProgress success:successBlock failure:failureBlock];
     }
     
 

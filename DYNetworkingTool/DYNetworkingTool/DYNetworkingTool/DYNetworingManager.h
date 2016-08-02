@@ -22,10 +22,10 @@ typedef enum {
 
 
 - (void)requestWithType:(RequestType)type
-              URLString:(NSString *)URLString
-             parameters:(id)parameters
-               progress:(void (^)(NSProgress * _Nonnull))downloadProgress
-                success:(void (^)(NSURLSessionDataTask * _Nonnull, id _Nullable))success
-                failure:(void (^)(NSURLSessionDataTask * _Nullable, NSError * _Nonnull))failure;
+              URLString:(NSString  *  )URLString
+             parameters:(id )parameters
+               progress:(void (^)(NSProgress *progress))downloadProgress
+                success:(void (^)(NSURLSessionDataTask *  task, id response))success
+                failure:(void (^)(NSURLSessionDataTask *  task, NSError * error))failure;
 
 @end

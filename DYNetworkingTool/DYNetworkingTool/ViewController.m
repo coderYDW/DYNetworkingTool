@@ -24,11 +24,11 @@
     /**
      *  get请求
      */
-    [[DYNetworingManager sharedManager] requestWithType:RequestTypeGet URLString:@"https://httpbin.org/get" parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id _Nullable response) {
+    [[DYNetworingManager sharedManager] requestWithType:RequestTypeGet URLString:@"https://httpbin.org/get" parameters:parameters progress:nil success:^(NSURLSessionDataTask * task, id response) {
         
         NSLog(@"get = %@ task = %@",response,task);
         
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+    } failure:^(NSURLSessionDataTask *  task, NSError *  error) {
         
         NSLog(@"%@",error);
         
@@ -37,11 +37,11 @@
     /**
      *  post请求
      */
-    [[DYNetworingManager sharedManager] requestWithType:RequestTypePost URLString:@"https://httpbin.org/post" parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id _Nullable response) {
+    [[DYNetworingManager sharedManager] requestWithType:RequestTypePost URLString:@"https://httpbin.org/post" parameters:parameters progress:nil success:^(NSURLSessionDataTask *  task, id response) {
         
         NSLog(@"post = %@ task = %@",response,task);
         
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+    } failure:^(NSURLSessionDataTask *  task, NSError *  error) {
         
         NSLog(@"%@",error);
         
@@ -50,6 +50,10 @@
     //验证单例
     NSLog(@"%p",[DYNetworingManager sharedManager]);
     NSLog(@"%p",[DYNetworingManager sharedManager]);
+    
+    
+
+    
     
     
 }
