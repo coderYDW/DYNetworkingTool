@@ -10,17 +10,18 @@
 
 @implementation DYNetworingOperation
 
-+ (void)requestOperationWithParameters:(NSDictionary *)parameters success:(void(^)(id response))success {
-
++ (void)requestOperationWithParameters:(NSDictionary *)parameters success:(void(^)(id response))success failure:(void(^)(NSError *error))failure {
+    
+    //将业务层的URLString放在这里
     NSString *URLString = @"https://httpbin.org/get";
     
-    [[DYNetworingManager sharedManager] requestWithType:RequestTypeGet URLString:URLString parameters:parameters progress:nil success:^(NSURLSessionDataTask *task, id response) {
+    [[DYNetworingManager sharedManager] requestWithType:kRequestType URLString:URLString parameters:parameters progress:nil success:^(NSURLSessionDataTask *task, id response) {
         
         success(response);
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         
-        NSLog(@"error = %@",error);
+        failure(error);
         
     }];
     

@@ -22,10 +22,23 @@
     NSDictionary *parameters = @{@"name":@"xiaoqiang",@"age":@"18"};
     
     [DYNetworingOperation requestOperationWithParameters:parameters success:^(id response) {
-       
+        
         NSLog(@"%@",response);
         
+    } failure:^(NSError *error) {
+        
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:@"您的网络不给力" preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil];
+        
+        [alertController addAction:action];
+        
+        [self presentViewController:alertController animated:YES completion:nil];
+        
     }];
+    
+    
+    
     
     
 //    /**

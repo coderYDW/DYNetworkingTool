@@ -11,8 +11,11 @@
  */
 #import <AFNetworking/AFNetworking.h>
 
+//定义枚举--网络请求的类型
 typedef enum {
+    //get
     RequestTypeGet,
+    //post
     RequestTypePost,
 } RequestType;
 
@@ -23,7 +26,16 @@ typedef enum {
  */
 + (instancetype)sharedManager;
 
-
+/**
+ *  网络请求方法
+ *
+ *  @param type             请求类型
+ *  @param URLString        URLString
+ *  @param parameters       参数
+ *  @param downloadProgress 下载进度
+ *  @param success          成功回调
+ *  @param failure          失败回调
+ */
 - (void)requestWithType:(RequestType)type
               URLString:(NSString  *)URLString
              parameters:(id )parameters
