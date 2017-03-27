@@ -49,6 +49,14 @@
         
     }
     
+    
+    NSMutableDictionary *tokens = [[NSMutableDictionary alloc] initWithDictionary:@{
+                                                                                    @"1":@"111",
+                                                                                    @"2":@"222",
+                                                                                    }];
+    
+    [tokens addEntriesFromDictionary:parameters];
+    
     void(^successBlock)(NSURLSessionDataTask *task, id responseObject) = ^(NSURLSessionDataTask *task, id responseObject) {
         success(task,responseObject);
     };
@@ -63,9 +71,9 @@
     
     
     if (type == RequestTypeGet) {
-        [self GET:URLString parameters:parameters progress:downloadProgress success:successBlock failure:failureBlock];
+        [self GET:URLString parameters:tokens progress:downloadProgress success:successBlock failure:failureBlock];
     } else if (type == RequestTypePost) {
-        [self POST:URLString parameters:parameters progress:downloadProgress success:successBlock failure:failureBlock];
+        [self POST:URLString parameters:tokens progress:downloadProgress success:successBlock failure:failureBlock];
     }
     
 
