@@ -6,21 +6,27 @@
 //  Copyright © 2016年 DovYoung. All rights reserved.
 //
 
-#import "DYNetworingManager.h"
+#import "DYNetworkingManager.h"
 
-@interface DYNetworingManager ()
+@interface DYNetworkingManager ()
+
+@property (nonatomic, assign) AFNetworkReachabilityStatus netStatus; //!< 网络检测
 
 @end
 
 
-@implementation DYNetworingManager
+@implementation DYNetworkingManager
 
 + (instancetype)sharedManager {
 
-    static DYNetworingManager *manager;
+    static DYNetworkingManager *manager;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         manager = [[self alloc] init];
+        manager.netStatus = AFNetworkReachabilityStatusReachableViaWiFi;
+        [manager checkNetRequestChangeBlock:^(AFNetworkReachabilityStatus status) {
+            manager.netStatus = status;
+        }];
     });
     return manager;
     
@@ -34,6 +40,14 @@
                 success:(void (^)(NSURLSessionDataTask *task, id response))success
                 failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure
 {
+    
+    if (self.netStatus == AFNetworkReachabilityStatusNotReachable || self.netStatus == AFNetworkReachabilityStatusUnknown) {
+        
+        [self connectError];
+        
+        return;
+        
+    }
     
     void(^successBlock)(NSURLSessionDataTask *task, id responseObject) = ^(NSURLSessionDataTask *task, id responseObject) {
         success(task,responseObject);
@@ -55,6 +69,32 @@
     }
     
 
+}
+
+- (void)checkNetRequestChangeBlock:(void(^)(AFNetworkReachabilityStatus status))netChange {
+    
+    AFNetworkReachabilityManager *manager = [AFNetworkReachabilityManager sharedManager];
+    
+    [manager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        
+        netChange(status);
+        
+    }];
+    
+    [manager startMonitoring];
+    
+}
+
+- (void)connectError {
+    
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"网络不可用,请检查网络" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
+    
+    [alertView show];
+    
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
 }
 
 @end
